@@ -1,14 +1,15 @@
 {
-  "name": "sites-project",
+  "name": "unimatch",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.28.1",
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "start": "vinext start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {

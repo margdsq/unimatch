@@ -1,3 +1,7 @@
+/**
+ * Root App Router layout: fonts, metadata, and global styles for CREW.
+ * metadataBase prefers the Vercel production URL so Open Graph images resolve.
+ */
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -13,7 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL
+      ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : 'http://localhost:3000'),
+  ),
   title: 'CREW — Find your people',
   description: 'Discover collaborators, join opportunities, and build better student teams with AI-powered matching.',
   openGraph: {
